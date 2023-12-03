@@ -1,0 +1,6 @@
+PAGE_POS = (2, 2147483647)
+PER_PAGE = (6, 2147483647)
+PAGE_NEG = ("", -2, '%', "Ошибка", "Err")
+NAME_POS = ("Jack", "Rick Role")
+JOB_POS = ("QA", "QA engineer")
+NAME_ANA_JOB_NEG = ("", '$', " ", 8.9, 6, "Ошибка", "Err", " Jack ", "<SCRIPT>")
