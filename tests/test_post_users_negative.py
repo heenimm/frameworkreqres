@@ -1,6 +1,5 @@
-from hamcrest import assert_that,equal_to
+from hamcrest import assert_that, equal_to
 from data.data import NAME_AND_JOB_NEG
-
 
 def test_create_with_empty_string(reqres_api):
     status_code, response = reqres_api.create_user(NAME_AND_JOB_NEG[0], NAME_AND_JOB_NEG[0])
@@ -13,7 +12,6 @@ def test_create_with_symbol(reqres_api):
     assert_that(status_code, equal_to(201))
     assert_that(response['name'], equal_to(NAME_AND_JOB_NEG[1]))
     assert_that(response.get('job'), equal_to(NAME_AND_JOB_NEG[1]))
-
 
 def test_create_with_whitespace(reqres_api):
     status_code, response = reqres_api.create_user(NAME_AND_JOB_NEG[2], NAME_AND_JOB_NEG[2])
