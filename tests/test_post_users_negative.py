@@ -30,5 +30,4 @@ def test_create_string__with_characters_and_spaces(reqres_api):
 
 def test_create_with_XSS(reqres_api):
     status_code, response = reqres_api.create_user(NAME_AND_JOB_NEG[6], NAME_AND_JOB_NEG[6])
-    print(response)
     assert_that(status_code, is_not(201))
