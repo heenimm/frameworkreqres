@@ -5,7 +5,6 @@ def test_create_with_empty_string(reqres_api):
     status_code, response = reqres_api.get_users(PAGE_NEG[0])
     assert_that(status_code, equal_to(200))
     assert_that(response.get('page'), equal_to(1))
-
 def test_get_users_with_symbol(reqres_api):
     status_code, response = reqres_api.get_users(PAGE_NEG[1])
     assert_that(status_code, equal_to(200))
