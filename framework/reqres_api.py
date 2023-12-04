@@ -28,3 +28,4 @@ class ReqresAPI:
         response = self.session.post(url, body)
         users_data = response.json() if response.ok else None
         return response.status_code, users_data
+
