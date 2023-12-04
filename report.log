@@ -5,13 +5,13 @@ collected 21 items
 
 tests/test_get_users_negative.py ...FF..F.                               [ 42%]
 tests/test_get_users_positive.py ..                                      [ 52%]
-tests/test_post_users_negative.py .......                                [ 85%]
+tests/test_post_users_negative.py FFFFF.F                                [ 85%]
 tests/test_post_users_positive.py ...                                    [100%]
 
 =================================== FAILURES ===================================
 ________________________ test_get_users_with_fractional ________________________
 
-reqres_api = <framework.reqres_api.ReqresAPI object at 0x1071e1240>
+reqres_api = <framework.reqres_api.ReqresAPI object at 0x1070833d0>
 
     def test_get_users_with_fractional(reqres_api):
         status_code, response = reqres_api.get_users(PAGE_NEG[3])
@@ -24,7 +24,7 @@ E            but: was <6>
 tests/test_get_users_negative.py:21: AssertionError
 _____________________ test_get_users_with_negative_integer _____________________
 
-reqres_api = <framework.reqres_api.ReqresAPI object at 0x1071e1240>
+reqres_api = <framework.reqres_api.ReqresAPI object at 0x1070833d0>
 
     def test_get_users_with_negative_integer(reqres_api):
         status_code, response = reqres_api.get_users(PAGE_NEG[4])
@@ -37,7 +37,7 @@ E            but: was <-2>
 tests/test_get_users_negative.py:26: AssertionError
 _____________________ test_get_users_with_per_page_max_int _____________________
 
-reqres_api = <framework.reqres_api.ReqresAPI object at 0x1071e1240>
+reqres_api = <framework.reqres_api.ReqresAPI object at 0x1070833d0>
 
     def test_get_users_with_per_page_max_int(reqres_api):
         status_code, response = reqres_api.get_users_with_per_page(PAGE_NEG[7], PAGE_NEG[7])
@@ -48,8 +48,89 @@ E       Expected: <1>
 E            but: was <9223372036854776000>
 
 tests/test_get_users_negative.py:41: AssertionError
+________________________ test_create_with_empty_string _________________________
+
+reqres_api = <framework.reqres_api.ReqresAPI object at 0x1070833d0>
+
+    def test_create_with_empty_string(reqres_api):
+        status_code, response = reqres_api.create_user(NAME_AND_JOB_NEG[0], NAME_AND_JOB_NEG[0])
+>       assert_that(status_code, is_not(201))
+E       AssertionError: 
+E       Expected: not <201>
+E            but: but was <201>
+
+tests/test_post_users_negative.py:6: AssertionError
+___________________________ test_create_with_symbol ____________________________
+
+reqres_api = <framework.reqres_api.ReqresAPI object at 0x1070833d0>
+
+    def test_create_with_symbol(reqres_api):
+        status_code, response = reqres_api.create_user(NAME_AND_JOB_NEG[1], NAME_AND_JOB_NEG[1])
+>       assert_that(status_code, is_not(201))
+E       AssertionError: 
+E       Expected: not <201>
+E            but: but was <201>
+
+tests/test_post_users_negative.py:10: AssertionError
+_________________________ test_create_with_whitespace __________________________
+
+reqres_api = <framework.reqres_api.ReqresAPI object at 0x1070833d0>
+
+    def test_create_with_whitespace(reqres_api):
+        status_code, response = reqres_api.create_user(NAME_AND_JOB_NEG[2], NAME_AND_JOB_NEG[2])
+>       assert_that(status_code, is_not(201))
+E       AssertionError: 
+E       Expected: not <201>
+E            but: but was <201>
+
+tests/test_post_users_negative.py:14: AssertionError
+_________________________ test_create_with_fractional __________________________
+
+reqres_api = <framework.reqres_api.ReqresAPI object at 0x1070833d0>
+
+    def test_create_with_fractional(reqres_api):
+        status_code, response = reqres_api.create_user(NAME_AND_JOB_NEG[3], NAME_AND_JOB_NEG[3])
+>       assert_that(status_code, is_not(201))
+E       AssertionError: 
+E       Expected: not <201>
+E            but: but was <201>
+
+tests/test_post_users_negative.py:18: AssertionError
+___________________________ test_create_with_integer ___________________________
+
+reqres_api = <framework.reqres_api.ReqresAPI object at 0x1070833d0>
+
+    def test_create_with_integer(reqres_api):
+        status_code, response = reqres_api.create_user(NAME_AND_JOB_NEG[4], NAME_AND_JOB_NEG[4])
+>       assert_that(status_code, is_not(201))
+E       AssertionError: 
+E       Expected: not <201>
+E            but: but was <201>
+
+tests/test_post_users_negative.py:22: AssertionError
+_____________________________ test_create_with_XSS _____________________________
+
+reqres_api = <framework.reqres_api.ReqresAPI object at 0x1070833d0>
+
+    def test_create_with_XSS(reqres_api):
+        status_code, response = reqres_api.create_user(NAME_AND_JOB_NEG[6], NAME_AND_JOB_NEG[6])
+        print(response)
+>       assert_that(status_code, is_not(201))
+E       AssertionError: 
+E       Expected: not <201>
+E            but: but was <201>
+
+tests/test_post_users_negative.py:34: AssertionError
+----------------------------- Captured stdout call -----------------------------
+{'name': '<script>alert(123)</script>', 'job': '<script>alert(123)</script>', 'id': '531', 'createdAt': '2023-12-04T10:45:50.592Z'}
 =========================== short test summary info ============================
 FAILED tests/test_get_users_negative.py::test_get_users_with_fractional - Ass...
 FAILED tests/test_get_users_negative.py::test_get_users_with_negative_integer
 FAILED tests/test_get_users_negative.py::test_get_users_with_per_page_max_int
-========================= 3 failed, 18 passed in 2.86s =========================
+FAILED tests/test_post_users_negative.py::test_create_with_empty_string - Ass...
+FAILED tests/test_post_users_negative.py::test_create_with_symbol - Assertion...
+FAILED tests/test_post_users_negative.py::test_create_with_whitespace - Asser...
+FAILED tests/test_post_users_negative.py::test_create_with_fractional - Asser...
+FAILED tests/test_post_users_negative.py::test_create_with_integer - Assertio...
+FAILED tests/test_post_users_negative.py::test_create_with_XSS - AssertionErr...
+========================= 9 failed, 12 passed in 3.08s =========================
