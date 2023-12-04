@@ -1,4 +1,4 @@
-from data.data import PAGE_POS, PER_PAGE
+from tests.data.data import PAGE_POS, PER_PAGE
 from hamcrest import assert_that,equal_to
 
 def test_get_users_valid_with_page(reqres_api):

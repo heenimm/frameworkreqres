@@ -1,5 +1,5 @@
 from hamcrest import assert_that,equal_to
-from data.data import NAME_POS, JOB_POS
+from tests.data.data import NAME_POS, JOB_POS
 
 def test_create_with_сyrillic(reqres_api):
     status_code, response = reqres_api.create_user(NAME_POS[0], JOB_POS[0])

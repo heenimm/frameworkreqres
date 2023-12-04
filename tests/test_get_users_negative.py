@@ -1,4 +1,4 @@
-from data.data import PAGE_NEG
+from tests.data.data import PAGE_NEG
 from hamcrest import assert_that, equal_to
 
 def test_create_with_empty_string(reqres_api):

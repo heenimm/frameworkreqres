@@ -1,5 +1,5 @@
 from hamcrest import assert_that, equal_to
-from data.data import NAME_AND_JOB_NEG
+from tests.data.data import NAME_AND_JOB_NEG
 
 def test_create_with_empty_string(reqres_api):
     status_code, response = reqres_api.create_user(NAME_AND_JOB_NEG[0], NAME_AND_JOB_NEG[0])
